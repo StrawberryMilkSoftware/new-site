@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  box-sizing:   border-box;
+  font-family: "Poppins";
+}
+
+h3 {
+  color: white;
+}
+
+body {
+  background-image: linear-gradient(pink, black);
+}
+
+h1 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+.controldiv {
+  border:      5px solid #cbb4c6;  
+  text-align:  center;
+  margin:      auto;
+  width:       250px;
+  border-radius: 5px;
+}
+
+.linkdiv {
+  border: 5px solid #cbb4c6;  
+  text-align: center;
+  margin: auto;
+  width: 250px;
+  border-radius: 5px;
+}
+
+.button {
+  border-radius:    5px;
+  border:           0px;
+  background-color: #e1befe;
+  color: #4f4f4f;
+  transition: background-color 0.25s
+}
+
+.button:hover {
+  border-radius:    5px;
+  border:           0px;
+  background-color: #ca8bfe;
+  color: #4f4f4f;
+}
+
+.homelink {
+  color:             white;
+  text-decoration: none;
+}
+
+.pagetitle {
+  font-size:   300%;
+}
+
+.logo {
+  width:   200px;
+  height:  200px;
+}
+
+.logosmall {
+  width:   100px;
+  height:  100px;
+}
+
+
+.approw {
+  display: flex;
+}
+
+.left-app {
+  margin-left: auto;
+  margin-right: 2px;
+  border: 3px solid #cbb4c6;
+  border-radius: 15px;
+  flex: 1;
+  width: 200px;
+  max-width: 200px;
+}
+
+.right-app {
+  margin-right: auto;
+  margin-left: 2px;
+  border: 3px solid #cbb4c6;
+  border-radius: 15px;
+  flex: 1;
+  width: 200px;
+  max-width: 200px;
+}
+
+.center-app {
+  margin: auto;
+  border: 3px solid #cbb4c6;
+  border-radius: 15px;
+  flex: 1;
+  width: 200px;
+  max-width: 200px;
+}
+
+.topnav {
+  background-image: linear-gradient(to right, pink, gray);
+  width: 10%;
+  margin: auto;
+  transition: 1s;
+  text-align: center;
+  border: 3px solid gray;
+  border-radius: 15px;
+  height: 5%
+}
+
+.topnav:hover {
+  background-image: linear-gradient(to right, pink, black);
+  width: 100%;
+  height: auto;
+}
+
+.navbutton {
+  background-image: linear-gradient(to right, black, pink);
+  opacity: 0.05;
+  transition: 1s;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  border: 3px solid gray;
+  overflow: hidden;
+}
+
+.navbutton:hover {
+  opacity: 1;
+}
+
+.expandnav {
+  background-image: linear-gradient(to right, pink, gray);
+  width: 10%;
+  margin: auto;
+  transition: 1s;
+  text-align: center;
+  border: 3px solid gray;
+  border-radius: 15px;
+  
+}
+
+.expandnav:hover {
+  background-image: linear-gradient(to right, pink, black);
+  width: 100%;
+}
+

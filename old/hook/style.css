@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital@1&display=swap');
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-image: linear-gradient( pink, gray);
+}
+
+* {
+  font-family: "Rubik";
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+p {
+  text-align: center;
+  color: white;
+}
+
+form {
+  text-align: center;
+}
+
+label {
+  text-align: center;
+  color: white;
+}

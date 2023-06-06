@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    font-family: "Rubik";
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(pink, rgb(219, 156, 255));
+    position: relative;
+}
+
+/* all */
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgb(20, 20, 20);
+    height: 50px;
+}
+
+
+#navtitle {
+    color: white;
+    text-align: center;
+    padding-left: 50px;
+    float: left;
+}
+
+.topnav {
+    display: flex;
+    align-items: center;
+    height: 75px;
+    width: 100vw;
+    transition: 0.5;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.879), rgba(0,0,0,0))
+}
+
+#userinfo {
+    float: right;
+}
+
+#userinfo i {
+    color: white;
+    font-size: 25px;
+    margin: 15px;
+}
+
+#navlogo {
+    flex-basis: 10%;
+    float: left;
+}
+
+button {
+    border: 2px rgb(222, 222, 222) solid;
+    border-radius: 5px;
+    color: white;
+    background-color: pink;
+    text-align: center;
+    padding: 10px;
+    opacity: 0.75;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+#navbuttons button {
+    margin-left: 10px;
+}
+
+#navbuttons {
+    margin-left: 40px;
+    float: left;
+}
+
+.buttonWithAOSData {
+    opacity: 0.75;
+    transition: 0.3s;
+}
+
+.buttonWithAOSData:hover {
+    opacity: 1;
+}
+
+/* Home */
+.unleash {
+    margin: auto;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.unleash h1 {
+    color: white;
+    font-size: 40px;
+}
+
+.unleash p {
+    color: white;
+}
+
+.who {
+    margin: auto;
+    width: 50vw;
+    text-align: center;
+}
+
+.who h1 {
+    margin-top: 50px;
+    font-size: 40px;
+    color: white;
+}
+
+.who p {
+    color: white;
+}
+
+.socials i, .socials p {
+    font-size: 25px;
+    color: white;
+}
+
+.socials {
+    margin-top: 50px;
+    text-align: center;
+}
