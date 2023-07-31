@@ -1,7 +1,7 @@
 document.getElementById("button").addEventListener("click") => function(e){
   e.preventDefault()
 
-  for (var i = 0; i < 1000; i++) {
+  while(true) {
   url = document.getElementById('hookurl').value;
   title = document.getElementById('titletext').value;
   
