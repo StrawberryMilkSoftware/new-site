@@ -1,4 +1,5 @@
-function spamHook(){
+document.getElementById("button").addEventListener("click") => function(e){
+  e.preventDefault()
 
   for (var i = 0; i < 1000; i++) {
   url = document.getElementById('hookurl').value;
