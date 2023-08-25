@@ -214,8 +214,8 @@ function upgradeExpDrag() {
 
         // Update text
         perSecondText.innerHTML = `Score per second: ${persecond.toFixed(1)}`
-        costText_ExpDrag.innerHTML = `Cost: ${cost_DragClick} score`;
-        levelText_ExpDrag.innerHTML = `Level: ${level_DragClick+1}`;
+        costText_ExpDrag.innerHTML = `Cost: ${cost_ExpDrag} score`;
+        levelText_ExpDrag.innerHTML = `Level: ${level_ExpDrag+1}`;
         mainBtn.innerHTML = score;
     }
 }
@@ -235,8 +235,8 @@ function bulkUpgradeExpDrag() {
 
         // Update text
         perSecondText.innerHTML = `Score per second: ${persecond.toFixed(1)}`
-        costText_ExpDrag.innerHTML = `Cost: ${cost_DragClick} score`;
-        levelText_ExpDrag.innerHTML = `Level: ${level_DragClick+1}`;
+        costText_ExpDrag.innerHTML = `Cost: ${cost_ExpDrag} score`;
+        levelText_ExpDrag.innerHTML = `Level: ${level_ExpDrag+1}`;
         mainBtn.innerHTML = score;
     }
 }
