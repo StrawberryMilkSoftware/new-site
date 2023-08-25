@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>[ Clickalicker II ]</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body onload="changeTopbarText()">
+  <div class="topbar">
+    <h1>Clickalicker II</h1>
+    <p id="topText">updates coming soon... 😉</p>
+  </div>
+  <div class="game">
+    <button id="mainBtn">Click me to start!</button>
+    <div id="stats">
+        <h1 id="statsTitle">STATS</h1>
+        <hr>
+        <h1 id="perClick">Score per click: 1</h1>
+        <h1 id="perSecond">Score per second: 0</h1>
+        <h1 id="goal">Next goal: 1000</h1>
+    </div>
+    <div id="upgrades">
+        <div id="manUpgrades">
+            <h1>Manual Upgrades</h1>
+            <div class="upgrade">
+                <h3 class="name">Extra Cursor</h3>
+                <p class="description">+1 score/click</p>
+                <p id="cost_ExtraCursor" class="cost">Cost: 3 score</p>
+                <p id="level_ExtraCursor" class="level">Level: 1</p>
+                <button class="purchase" id="purchase_ExtraCursor">Buy</button>
+                <button class="purchase" id="purchaseBulk_ExtraCursor">Buy 5</button>
+            </div>
+            <div id="doubleClicker" class="upgrade hidden">
+                <h3 class="name">Double Clicker</h3>
+                <p class="description">x2 score/click</p>
+                <p id="cost_DoubleClicker" class="cost">Cost: 1000 score</p>
+                <p id="level_DoubleClicker" class="level">Level: 1</p>
+                <button class="purchase" id="purchase_DoubleClicker">Buy</button>
+                <button class="purchase" id="purchaseBulk_DoubleClicker">Buy 5</button>
+            </div>
+        </div>
+
+        <div id="autoUpgrades">
+            <h1>Automatic Upgrades</h1>
+            <div class="upgrade">
+                <h3 class="name">Drag Clicker</h3>
+                <p class="description">+10 score every 5s</p>
+                <p id="cost_DragClick" class="cost">Cost: 15 score</p>
+                <p id="level_DragClick" class="level">Level: 1</p>
+                <button class="purchase" id="purchase_DragClick">Buy</button>
+                <button class="purchase" id="purchaseBulk_DragClick">Buy 5</button>
+            </div>
+            <div id="expDrag" class="upgrade hidden">
+              <h3 class="name">Experienced Drag Clicker</h3>
+              <p class="description">+10 score every 2.5s</p>
+              <p id="cost_ExpDrag" class="cost">Cost: 25 score</p>
+              <p id="level_ExpDrag" class="level">Level: 1</p>
+              <button class="purchase" id="purchase_ExpDrag">Buy</button>
+              <button class="purchase" id="purchaseBulk_ExpDrag">Buy 5</button>
+          </div>
+        </div>
+        
+    </div>
+</div>
+  <script src="script.js"></script>
+  <script src="changeText.js"></script>
+</body>
+</html>

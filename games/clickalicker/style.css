@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+
+* {
+  font-family: "Teko", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.topbar {
+  width: 100%;
+  height: 15%;
+  position: absolute;
+  background-color: #7dffa0;
+  text-align: center;
+  border-bottom: 5px solid black;
+}
+
+.topbar h1 {
+  color: white;
+  margin-top: 30px;
+}
+
+.topbar p {
+  color: white;
+  margin: 0;
+}
+
+.game {
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mainBtn {
+  height: 250px;
+  margin: 25px;
+  font-size: 25px;
+  background-color: #86e673;
+  border-radius: 20px;
+  border: 3px solid black;
+  transition: 0.5s;
+  flex-basis: 20%;
+}
+
+#mainBtn:hover {
+  background-color: #9fe092;
+  color: white;
+}
+
+#upgrades {
+    flex-basis: 20%;
+    display: flex;
+    text-align: center;
+}
+
+#upgrades h1 {
+    margin: 0;
+}
+
+#manUpgrades {
+    flex-basis: 50%;
+    margin-right: 10px;
+}
+
+#autoUpgrades {
+    flex-basis: 50%;
+}
+
+.upgrade {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.name, .cost, .purchase, .level, .description {
+    margin: 0;
+}
+
+.purchase {
+    background-color: #7dffa0;
+    width: 75%;
+    border-radius: 7.5px;
+    border: 0;
+    transition: 0.3s;
+    margin-top: 2px;
+}
+
+.purchase:hover {
+    background-color: #6ddd8b;
+    width: 100%;
+}
+
+.purchase:active {
+    background-color: #cdffda;
+    width: 90%;
+    height: 90%;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#stats {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #cdffda;
+    padding: 15px;
+    border-radius: 0 15px 0 0;
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+    text-align: center;
+}
+
+#perClick, #perSecond, #goal, #statsTitle{
+    margin: 0;
+}
+
+#statsTitle {
+    font-size: 40px;
+}
