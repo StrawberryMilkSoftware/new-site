@@ -427,12 +427,12 @@ function upgradeAutoclicker() {
         score -= cost_Autoclicker;
         level_Autoclicker++;
         cost_Autoclicker *= 3;
-        persecond += 100;
+        persecond += 20;
         autoclickers++;
 
         // Upgrade action
         if (autoclickers === 1) {
-            setInterval(clickAuto, 10);
+            setInterval(clickAuto, 50);
         }
 
         // Update text
@@ -452,12 +452,12 @@ function bulkUpgradeAutoclicker() {
         score -= cost_Autoclicker;
         level_Autoclicker+=5;
         cost_Autoclicker *= 15;
-        persecond += 500;
+        persecond += 100;
         autoclickers += 5;
 
         // Upgrade action
         if (autoclickers === 1 || autoclickers === 5) {
-            setInterval(clickAuto, 10);
+            setInterval(clickAuto, 50);
         }
 
         // Update text
@@ -630,8 +630,9 @@ saveButton.addEventListener('click', () => {
     savedYet = true;
 });
 
+const parsedData = JSON.parse(localStorage.getItem("data"));
+
 function loadData() {
-    const parsedData = JSON.parse(localStorage.getItem("data"));
 
     // Load stats
     perclick = parsedData.stats.scorePerClick;
@@ -716,4 +717,37 @@ window.addEventListener("beforeunload", function (e) {
 
 loadData();
 postLoadTextUpdate();
-loadGoals();
+
+if (goal === 2500) {
+    DoubleClicker.classList.remove('hidden');
+}
+if (goal === 5000) {
+    DoubleClicker.classList.remove('hidden');
+    ExpDrag.classList.remove('hidden');
+}
+if (goal === 7500) {
+    DoubleClicker.classList.remove('hidden');
+    ExpDrag.classList.remove('hidden');
+    SelfDrag.classList.remove('hidden');
+}
+if (goal === 10000) {
+    DoubleClicker.classList.remove('hidden');
+    ExpDrag.classList.remove('hidden');
+    SelfDrag.classList.remove('hidden');
+    HiredGamer.classList.remove('hidden');
+}
+if (goal === 20000) {
+    DoubleClicker.classList.remove('hidden');
+    ExpDrag.classList.remove('hidden');
+    SelfDrag.classList.remove('hidden');
+    HiredGamer.classList.remove('hidden');
+    ChargedCursor.classList.remove('hidden');
+}
+if (goal === 0) {
+    DoubleClicker.classList.remove('hidden');
+    ExpDrag.classList.remove('hidden');
+    SelfDrag.classList.remove('hidden');
+    HiredGamer.classList.remove('hidden');
+    ChargedCursor.classList.remove('hidden');
+    Autoclicker.classList.remove('hidden');
+}

@@ -114,7 +114,6 @@ body {
 .purchase:active {
     background-color: #cdffda;
     width: 90%;
-    height: 90%;
 }
 
 
@@ -160,7 +159,7 @@ body {
 }
 
 #version:hover:before {
-  content: "Aug 25 2023 | Clickalicker II version 'BIG' / ";
+  content: "Aug 26 2023 | Clickalicker II version 'Fixes' / ";
 }
 
 #devMode {
