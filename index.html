@@ -1,121 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Clickalicker II</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" >
-  <meta name="description" content="Clickalicker II is a clicker game designed to keep you playing for weeks. With so many unique upgrades and replayability, you'll be clicking forever!">
-  <link href="style.css" rel="stylesheet">
-  <link href="favicon.png" rel="icon">
-  <script src="https://kit.fontawesome.com/c7597dd6dc.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>strawberry milk software</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <meta name="description" content="unleash your computer's greatness with strawberry milk software. trying to make software development a better place. home of zterminal, td idk, and smOS.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body id="body">
-  <div id="topbar">
-    <a target="_blank" id="github" href="https://github.com/StrawberryMilkSoftware/new-site/tree/main/games/clickalicker">
-        <i id="githubInside" class="fa-brands fa-github fa-beat-fade"></i>
-        <p>source code</p>
-      </a>
-    <h1>Clickalicker II</h1>
-    <p id="topText">updates coming soon... 😉</p>
-  </div>
-  <div class="game">
-    <button id="mainBtn">Click me to start!</button>
-    <div id="stats">
-        <h1 id="statsTitle">STATS</h1>
-        <hr>
-        <h1 class="statstext statsleft">SCORE/CLICK</h1>
-        <h1 class="statstext statsright" id="perClick">1</h1>
-        <br>
-        <h1 class="statstext statsleft">SCORE/SECOND</h1>
-        <h1 class="statstext statsright" id="perSecond">0</h1>
-        <br>
-        <h1 class="statstext statsleft">GOAL</h1>
-        <h1 class="statstext statsright" id="goal">1000</h1>
-        <h1 class="hidden" id="devModeStat">- DEV MODE -</h1>
-        <button class="dataButton" id="saveButton">Save</button>
-        <button class="dataButton" id="resetButton">Reset</button>
-    </div>
-    <div id="upgrades">
-        <div id="manUpgrades">
-            <h1>Manual Upgrades</h1>
-            <div class="upgrade">
-                <h3 class="name">Extra Cursor</h3>
-                <p class="description">+1 score/click</p>
-                <p id="cost_ExtraCursor" class="cost">Cost: 3 score</p>
-                <p id="level_ExtraCursor" class="level">Level: 1</p>
-                <button class="purchase" id="purchase_ExtraCursor">Buy</button>
-                <button class="purchase" id="purchaseBulk_ExtraCursor">Buy 5</button>
-            </div>
-            <div id="doubleClicker" class="upgrade hidden">
-                <h3 class="name">Double Clicker</h3>
-                <p class="description">x2 score/click</p>
-                <p id="cost_DoubleClicker" class="cost">Cost: 1000 score</p>
-                <p id="level_DoubleClicker" class="level">Level: 1</p>
-                <button class="purchase" id="purchase_DoubleClicker">Buy</button>
-                <button class="purchase" id="purchaseBulk_DoubleClicker">Buy 5</button>
-            </div>
-            <div id="selfDrag" class="upgrade hidden">
-              <h3 class="name">Self Drag Click</h3>
-              <p class="description">-2 score/second, +10 score/click</p>
-              <p id="cost_selfDrag" class="cost">Cost: 10 score</p>
-              <p id="level_selfDrag" class="level">Level: 1</p>
-              <button class="purchase" id="purchase_selfDrag">Buy</button>
-              <button class="purchase" id="purchaseBulk_selfDrag">Buy 5</button>
-          </div>
-            <div id="chargedCursor" class="upgrade hidden">
-              <h3 class="name">Charged Cursor</h3>
-              <p class="description">+10 score/click</p>
-              <p id="cost_ChargedCursor" class="cost">Cost: 5 score</p>
-              <p id="level_ChargedCursor" class="level">Level: 1</p>
-              <button class="purchase" id="purchase_ChargedCursor">Buy</button>
-              <button class="purchase" id="purchaseBulk_ChargedCursor">Buy 5</button>
-          </div>
-          
-        </div>
+<body id="body"onload="typeText(); setTimeout(AOS.init, 1200);">
 
-        <div id="autoUpgrades">
-            <h1>Automatic Upgrades</h1>
-            <div class="upgrade">
-                <h3 class="name">Drag Clicker</h3>
-                <p class="description">+10 score every 5s</p>
-                <p id="cost_DragClick" class="cost">Cost: 15 score</p>
-                <p id="level_DragClick" class="level">Level: 1</p>
-                <button class="purchase" id="purchase_DragClick">Buy</button>
-                <button class="purchase" id="purchaseBulk_DragClick">Buy 5</button>
-            </div>
-            <div id="expDrag" class="upgrade hidden">
-              <h3 class="name">Experienced Drag Clicker</h3>
-              <p class="description">+10 score every 2.5s</p>
-              <p id="cost_ExpDrag" class="cost">Cost: 25 score</p>
-              <p id="level_ExpDrag" class="level">Level: 1</p>
-              <button class="purchase" id="purchase_ExpDrag">Buy</button>
-              <button class="purchase" id="purchaseBulk_ExpDrag">Buy 5</button>
-          </div>
-          <div id="hiredGamer" class="upgrade hidden">
-            <h3 class="name">Hired Gamer</h3>
-            <p class="description">+10 score per second</p>
-            <p id="cost_HiredGamer" class="cost">Cost: 20 score</p>
-            <p id="level_HiredGamer" class="level">Level: 1</p>
-            <button class="purchase" id="purchase_HiredGamer">Buy</button>
-            <button class="purchase" id="purchaseBulk_HiredGamer">Buy 5</button>
+    <script src="/js/typeText-home.js"></script>
+    <script src="/js/randomText.js"></script>
+
+
+    <div class="topnav" data-aos="fade-down">
+        <a href="/">
+        <div id="navlogo">
+            <img src="/images/logo.png" alt="logo" width="125" height="125">
         </div>
-        <div id="autoclicker" class="upgrade hidden">
-          <h3 class="name">Autoclicker</h3>
-          <p class="description">+1 score per 10ms</p>
-          <p id="cost_Autoclicker" class="cost">Cost: 50 score</p>
-          <p id="level_Autoclicker" class="level">Level: 1</p>
-          <button class="purchase" id="purchase_Autoclicker">Buy</button>
-          <button class="purchase" id="purchaseBulk_Autoclicker">Buy 5</button>
-      </div>
+        </a>
+        <div id="navtitle">
+            <h1 data-value="strawberry milk software">strawberry milk software</h1>
         </div>
-        
+        <div id="navbuttons">
+            <a href="/store">
+                <button>Store</button>
+            </a>
+            <a href="https://github.com/StrawberryMilkSoftware">
+                <button>GitHub</button>
+            </a>
+        </div>
+        <div id="userinfo">
+            <i class="fa fa-user"></i>
+            <i class="fa fa-cart-shopping"></i>
+        </div>
     </div>
-    <h1 id="version"><a target="_blank" href="https://docs.google.com/document/d/1SoYKfFR6jLoRsEqtWXy_xSu2OsSgsgMAiTJWJODKDXM/edit?usp=sharing">
-      v1.1
-    </a></h1>
-    <a id="devMode">.</a>
-</div>
-<script src="script.js"></script>
-<script src="changeText.js"></script>
-<script src="upgradesDynAlign.js"></script>
+
+    <div class="unleash">
+        <img  data-aos="zoom-in" src="/images/logo.png" height=200 width=200>
+        <h1 id="maintitle"></h1>
+        <p data-aos="fade-up">with strawberry milk software</p>
+        <a class="buttonWithAOSData" href="/store">
+            <button data-aos="fade-up" style="margin-top: 10px">see store</button>
+        </a>
+    </div>
+    
+
+    <!-- stuff lol -->
+
+    <div class="who" data-aos="fade-up">
+        <h1>who are we?</h1>
+        <p>Strawberry Milk Software is a small developer group focused on <em>actually</em> making customers happy.
+        Other software groups may be only in the business for the money, but we are not the same.
+        We focus on making good products and hope to grow big one day. Thanks for visiting our website!</p>
+    </div>
+    <div class="socials" data-aos="zoom-in">
+        <a href="https://discord.gg/Eej56Kmk9w">
+            <p>Join our community!</p>
+            <i class="fa-brands fa-discord"></i>
+        </a> 
+    </div>
+    
+    
+    <div class="footer">
+        <span><i class="fa fa-code"></i>&nbsp;Source on <a href="https://github.com/StrawberryMilkSoftware/strawberrymilksoftware.github.io">GitHub.</a><br></span>
+        <span>&copy;&nbsp;2023 Strawberry Milk Software. <a href="https://github.com/StrawberryMilkSoftware/strawberrymilksoftware.github.io/blob/main/LICENSE">See licensing info.</a></span>
+    </div>
 </body>
 </html>
