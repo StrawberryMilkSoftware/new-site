@@ -5,14 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" >
   <link href="style.css" rel="stylesheet">
   <link href="favicon.png" rel="icon">
+  <script src="https://kit.fontawesome.com/c7597dd6dc.js" crossorigin="anonymous"></script>
 </head>
 <body id="body">
   <div id="topbar">
+    <a target="_blank" id="github" href="https://github.com/StrawberryMilkSoftware/new-site/tree/main/games/clickalicker">
+        <i id="githubInside" class="fa-brands fa-github fa-beat-fade"></i>
+        <p>source code</p>
+      </a>
     <h1>Clickalicker II</h1>
     <p id="topText">updates coming soon... 😉</p>
   </div>
   <div class="game">
-    <h1 id="warning">This is a beta build of Clickalicker II, so bugs may occur.</h1>
     <button id="mainBtn">Click me to start!</button>
     <div id="stats">
         <h1 id="statsTitle">STATS</h1>
@@ -26,6 +30,8 @@
         <h1 class="statstext statsleft">GOAL</h1>
         <h1 class="statstext statsright" id="goal">1000</h1>
         <h1 class="hidden" id="devModeStat">- DEV MODE -</h1>
+        <button class="dataButton" id="saveButton">Save</button>
+        <button class="dataButton" id="resetButton">Reset</button>
     </div>
     <div id="upgrades">
         <div id="manUpgrades">
@@ -83,15 +89,32 @@
               <button class="purchase" id="purchase_ExpDrag">Buy</button>
               <button class="purchase" id="purchaseBulk_ExpDrag">Buy 5</button>
           </div>
+          <div id="hiredGamer" class="upgrade hidden">
+            <h3 class="name">Hired Gamer</h3>
+            <p class="description">+10 score per second</p>
+            <p id="cost_HiredGamer" class="cost">Cost: 20 score</p>
+            <p id="level_HiredGamer" class="level">Level: 1</p>
+            <button class="purchase" id="purchase_HiredGamer">Buy</button>
+            <button class="purchase" id="purchaseBulk_HiredGamer">Buy 5</button>
+        </div>
+        <div id="autoclicker" class="upgrade hidden">
+          <h3 class="name">Autoclicker</h3>
+          <p class="description">+1 score per 10ms</p>
+          <p id="cost_Autoclicker" class="cost">Cost: 50 score</p>
+          <p id="level_Autoclicker" class="level">Level: 1</p>
+          <button class="purchase" id="purchase_Autoclicker">Buy</button>
+          <button class="purchase" id="purchaseBulk_Autoclicker">Buy 5</button>
+      </div>
         </div>
         
     </div>
     <h1 id="version"><a target="_blank" href="https://docs.google.com/document/d/1SoYKfFR6jLoRsEqtWXy_xSu2OsSgsgMAiTJWJODKDXM/edit?usp=sharing">
-      BETA v1.05
+      v1.1
     </a></h1>
     <a id="devMode">.</a>
 </div>
 <script src="script.js"></script>
 <script src="changeText.js"></script>
+<script src="upgradesDynAlign.js"></script>
 </body>
 </html>
