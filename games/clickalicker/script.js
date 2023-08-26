@@ -133,31 +133,35 @@ function loadGoals() {
         window.alert("Goal reached! Unlocked: Double Clicker");
         DoubleClicker.classList.remove("hidden");
         goal = 2500;
-        goalText.innerHTML = "Next goal: 2500";
+        goalText.innerHTML = "2500";
     }
     if (score >= 2500 && goal === 2500) {
         window.alert("Goal reached! Unlocked: Experienced Drag Clicker");
         ExpDrag.classList.remove("hidden");
 
         goal = 5000;
+        goalText.innerHTML = "5000";
     }
     if (score >= 5000 && goal === 5000) {
         window.alert("Goal reached! Unlocked: Self Drag Clicker");
         SelfDrag.classList.remove("hidden");
 
         goal = 7500;
+        goalText.innerHTML = "7500";
     }
     if (score >= 7500 && goal === 7500) {
         window.alert("Goal reached! Unlocked: Hired Gamer");
         HiredGamer.classList.remove("hidden");
 
         goal = 10000;
+        goalText.innerHTML = "10000";
     }
     if (score >= 10000 && goal === 10000) {
         window.alert("Goal reached! Unlocked: Charged Cursor");
         ChargedCursor.classList.remove("hidden");
 
         goal = 20000;
+        goalText.innerHTML = "20000";
     }
     if (score >= 20000 && goal === 20000) {
         window.alert("Goal reached! Unlocked: Autoclicker");
