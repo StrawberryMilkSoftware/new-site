@@ -751,3 +751,21 @@ if (goal === 0) {
     ChargedCursor.classList.remove('hidden');
     Autoclicker.classList.remove('hidden');
 }
+
+dragClickers = parsedData.upgrades.DragClick.level;
+expDragClickers = parsedData.upgrades.ExpDrag.level;
+gamers = parsedData.upgrades.HiredGamer.level;
+autoclickers = parsedData.upgrades.Autoclicker.level;
+
+if (dragClickers > 0) {
+    setInterval(dragClick, 5000);
+}
+if (expDragClickers > 0) {
+    setInterval(dragClickExp, 2500);
+}
+if (gamers > 0) {
+    setInterval(clickGamer, 1000);
+}
+if (autoclickers > 0) {
+    setInterval(clickAuto, 50);
+}
