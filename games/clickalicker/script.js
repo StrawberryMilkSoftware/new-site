@@ -2,11 +2,16 @@ const mainBtn = document.getElementById("mainBtn");
 mainBtn.addEventListener("click", onMainBtnClick);
 let score = 0
 let perclick = 1;
-let perClickText = document.getElementById("perClick");
+const perClickText = document.getElementById("perClick");
 let persecond = 0;
-let perSecondText = document.getElementById("perSecond");
+const perSecondText = document.getElementById("perSecond");
 let goal = 1000;
-let goalText = document.getElementById("goal");
+const goalText = document.getElementById("goal");
+const body = document.getElementById("body");
+const topBar = document.getElementById("topbar");
+const statsBox = document.getElementById("stats");
+const devModeButton = document.getElementById("devMode");
+const devModeStat = document.getElementById("devModeStat");
 
 // EXTRA CURSOR
 let level_ExtraCursor = 0;
@@ -17,6 +22,18 @@ let purchaseButton_ExtraCursor = document.getElementById("purchase_ExtraCursor")
 purchaseButton_ExtraCursor.addEventListener("click", upgradeExtraCursor);
 let purchaseBulkButton_ExtraCursor = document.getElementById("purchaseBulk_ExtraCursor");
 purchaseBulkButton_ExtraCursor.addEventListener("click", bulkUpgradeExtraCursor);
+
+// CHARGED CURSOR
+const ChargedCursor = document.getElementById("chargedCursor");
+let level_ChargedCursor = 0;
+let cost_ChargedCursor = 5;
+let costText_ChargedCursor = document.getElementById("cost_ChargedCursor");
+let levelText_ChargedCursor = document.getElementById("level_ChargedCursor");
+let purchaseButton_ChargedCursor = document.getElementById("purchase_ChargedCursor");
+purchaseButton_ChargedCursor.addEventListener("click", upgradeChargedCursor);
+let purchaseBulkButton_ChargedCursor = document.getElementById("purchaseBulk_ChargedCursor");
+purchaseBulkButton_ChargedCursor.addEventListener("click", bulkUpgradeChargedCursor);
+
 
 // DRAG CLICKER
 let level_DragClick = 0;
@@ -53,6 +70,15 @@ purchaseButton_DoubleClicker.addEventListener("click", upgradeDoubleClicker);
 let purchaseBulkButton_DoubleClicker = document.getElementById("purchaseBulk_DoubleClicker");
 purchaseBulkButton_DoubleClicker.addEventListener("click", bulkUpgradeDoubleClicker);
 
+devModeButton.addEventListener("click", () => {
+    DoubleClicker.classList.remove("hidden");
+    ExpDrag.classList.remove("hidden");
+    ChargedCursor.classList.remove("hidden");
+    devModeStat.classList.remove("hidden");
+    window.alert("Developer mode enabled!");
+});
+
+
 function sleep(milliseconds) {
     const date = Date.now();
     let currentDate = null;
@@ -74,9 +100,33 @@ function onMainBtnClick() {
     if (score >= 2500 && goal === 2500) {
         window.alert("Goal reached! Unlocked: Experienced Drag Clicker");
         ExpDrag.classList.remove("hidden");
+
         goal = 5000;
-        goalText.innerHTML = "Next goal: 5000";
     }
+    if (score >= 5000 && goal === 5000) {
+        window.alert("Goal reached! Unlocked: Self Drag Clicker");
+        // SelfDrag.classList.remove("hidden");
+
+        goal = 10000;
+    }
+    if (score >= 10000 && goal === 10000) {
+        window.alert("Goal reached! Unlocked: Charged Cursor");
+        ChargedCursor.classList.remove("hidden");
+
+
+        // LAST GOAL
+        goal = 9999999999;
+        goalText.innerHTML = "All goals reached!";
+        body.style.backgroundColor = "#FFED8A";
+        mainBtn.style.backgroundColor = "#FFDE2E";
+        window.alert("All goals reached!")
+        topBar.style.backgroundColor = "#FFD700";
+        statsBox.style.backgroundColor = "#FFD700";
+    }
+}
+
+function notEnoughScoreAlert() {
+    window.alert("You don't have enough score to buy this!");
 }
 
 function upgradeExtraCursor() {
@@ -89,10 +139,13 @@ function upgradeExtraCursor() {
         perclick++;
 
         // Update text
-        perClickText.innerHTML = `Score per click: ${perclick}`
+        perClickText.innerHTML = `${perclick}`
         costText_ExtraCursor.innerHTML = `Cost: ${cost_ExtraCursor} score`;
         levelText_ExtraCursor.innerHTML = `Level: ${level_ExtraCursor+1}`;
         mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
     }
 }
 
@@ -106,10 +159,53 @@ function bulkUpgradeExtraCursor() {
         perclick+=5;
 
         // Update text
-        perClickText.innerHTML = `Score per click: ${perclick}`
+        perClickText.innerHTML = `${perclick}`
         costText_ExtraCursor.innerHTML = `Cost: ${cost_ExtraCursor} score`;
         levelText_ExtraCursor.innerHTML = `Level: ${level_ExtraCursor+1}`;
         mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
+    }
+}
+
+function upgradeChargedCursor() {
+    if (score >= cost_ChargedCursor) {
+        score -= cost_ChargedCursor;
+        level_ChargedCursor++;
+        cost_ChargedCursor *= 3;
+
+        // Upgrade action
+        perclick+=10;
+
+        // Update text
+        perClickText.innerHTML = `${perclick}`
+        costText_ChargedCursor.innerHTML = `Cost: ${cost_ChargedCursor} score`;
+        levelText_ChargedCursor.innerHTML = `Level: ${level_ChargedCursor+1}`;
+        mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
+    }
+}
+
+function bulkUpgradeChargedCursor() {
+    if (score >= (cost_ChargedCursor * 5)) {
+        score -= (cost_ChargedCursor * 5);
+        level_ChargedCursor++;
+        cost_ChargedCursor *= 15;
+
+        // Upgrade action
+        perclick+=50;
+
+        // Update text
+        perClickText.innerHTML = `${perclick}`
+        costText_ChargedCursor.innerHTML = `Cost: ${cost_ChargedCursor} score`;
+        levelText_ChargedCursor.innerHTML = `Level: ${level_ChargedCursor+1}`;
+        mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
     }
 }
 
@@ -123,10 +219,13 @@ function upgradeDoubleClicker() {
         perclick*=2;
 
         // Update text
-        perClickText.innerHTML = `Score per click: ${perclick}`
+        perClickText.innerHTML = `${perclick}`
         costText_DoubleClicker.innerHTML = `Cost: ${cost_DoubleClicker} score`;
         levelText_DoubleClicker.innerHTML = `Level: ${level_DoubleClicker+1}`;
         mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
     }
 }
 
@@ -140,10 +239,13 @@ function bulkUpgradeDoubleClicker() {
         perclick*=10;
 
         // Update text
-        perClickText.innerHTML = `Score per click: ${perclick}`
+        perClickText.innerHTML = `${perclick}`
         costText_DoubleClicker.innerHTML = `Cost: ${cost_DoubleClicker} score`;
         levelText_DoubleClicker.innerHTML = `Level: ${level_DoubleClicker+1}`;
         mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
     }
 }
 
@@ -166,10 +268,13 @@ function upgradeDragClick() {
         }
 
         // Update text
-        perSecondText.innerHTML = `Score per second: ${persecond.toFixed(1)}`
+        perSecondText.innerHTML = `${persecond.toFixed(1)}`
         costText_DragClick.innerHTML = `Cost: ${cost_DragClick} score`;
         levelText_DragClick.innerHTML = `Level: ${level_DragClick+1}`;
         mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
     }
 }
 
@@ -187,10 +292,13 @@ function bulkUpgradeDragClick() {
         }
 
         // Update text
-        perSecondText.innerHTML = `Score per second: ${persecond.toFixed(1)}`
+        perSecondText.innerHTML = `${persecond.toFixed(1)}`
         costText_DragClick.innerHTML = `Cost: ${cost_DragClick} score`;
         levelText_DragClick.innerHTML = `Level: ${level_DragClick+1}`;
         mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
     }
 }
 
@@ -213,10 +321,13 @@ function upgradeExpDrag() {
         }
 
         // Update text
-        perSecondText.innerHTML = `Score per second: ${persecond.toFixed(1)}`
+        perSecondText.innerHTML = `${persecond.toFixed(1)}`
         costText_ExpDrag.innerHTML = `Cost: ${cost_ExpDrag} score`;
         levelText_ExpDrag.innerHTML = `Level: ${level_ExpDrag+1}`;
         mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
     }
 }
 
@@ -234,9 +345,12 @@ function bulkUpgradeExpDrag() {
         }
 
         // Update text
-        perSecondText.innerHTML = `Score per second: ${persecond.toFixed(1)}`
+        perSecondText.innerHTML = `${persecond.toFixed(1)}`
         costText_ExpDrag.innerHTML = `Cost: ${cost_ExpDrag} score`;
         levelText_ExpDrag.innerHTML = `Level: ${level_ExpDrag+1}`;
         mainBtn.innerHTML = score;
+    }
+    else {
+        notEnoughScoreAlert();
     }
 }

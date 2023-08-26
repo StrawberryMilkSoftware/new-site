@@ -8,7 +8,6 @@ const texts = [
     "smsoftware > microsoft",
     "smsoftware > google",
     "lickaclicker",
-    "concurrent playerbase: 5",
     "e um e appy ear o my eye 👁",
     "just play unblocked games instead",
     "by strawbery milk software",
@@ -27,7 +26,12 @@ const texts = [
     "clickalicker > valorant",
     "clickalicker > fortnite",
     "clickalicker > all the games W",
-    "how many clickalicks could a clickalicker click until the clickalicker licks its own clicks?"
+    "how many clickalicks could a clickalicker click until the clickalicker licks its own clicks?",
+    "why is splash text called splash text? i mean, it's not exactly splashing, it's simply appearing on the screen. what does this text have to do with water or other liquids? this is weird...",
+    "sorry for that",
+    "still deleting score...",
+    "this game is now ok i guess",
+    "why are you playing this game?" 
   ];
 
   const changingTextElement = document.getElementById("topText");

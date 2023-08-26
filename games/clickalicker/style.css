@@ -7,25 +7,28 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #ebfff0;
 }
 
-.topbar {
+#topbar {
   width: 100%;
   height: 15%;
   position: absolute;
   background-color: #7dffa0;
   text-align: center;
   border-bottom: 5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.topbar h1 {
+#topbar h1 {
   color: white;
-  margin-top: 30px;
 }
 
-.topbar p {
+#topbar p {
   color: white;
-  margin: 0;
+  margin-left: 25px;
 }
 
 .game {
@@ -42,7 +45,7 @@ body {
   height: 250px;
   margin: 25px;
   font-size: 25px;
-  background-color: #86e673;
+  background-color: #7dffa0;
   border-radius: 20px;
   border: 3px solid black;
   transition: 0.5s;
@@ -50,7 +53,7 @@ body {
 }
 
 #mainBtn:hover {
-  background-color: #9fe092;
+  background-color: #6add89;
   color: white;
 }
 
@@ -58,6 +61,9 @@ body {
     flex-basis: 20%;
     display: flex;
     text-align: center;
+    overflow: scroll;
+    height: 100%;
+    align-items: center;
 }
 
 #upgrades h1 {
@@ -79,6 +85,7 @@ body {
     padding: 5px;
     text-align: center;
     margin-bottom: 5px;
+    background-color: white;
 }
 
 .name, .cost, .purchase, .level, .description {
@@ -95,7 +102,7 @@ body {
 }
 
 .purchase:hover {
-    background-color: #6ddd8b;
+    background-color: #7dffa0;
     width: 100%;
 }
 
@@ -114,18 +121,56 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: #cdffda;
+    background-color: #7dffa0;
     padding: 15px;
     border-radius: 0 15px 0 0;
     border-top: 5px solid black;
     border-right: 5px solid black;
-    text-align: center;
+    width: 250px;
 }
 
-#perClick, #perSecond, #goal, #statsTitle{
+.statstext {
     margin: 0;
+    display: inline-block;
+}
+
+.statsleft {
+  text-align: left;
+}
+
+.statsright {
+  float: right;
 }
 
 #statsTitle {
     font-size: 40px;
+    text-align: center;
+    margin: 0;
+}
+
+#version {
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+}
+
+#version:hover:before {
+  content: "Aug 25 2023 | Clickalicker II version 'BIG' / ";
+}
+
+#devMode {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+}
+
+#devModeStat {
+  text-align: center;
+}
+
+#warning {
+  color: red;
+  position: absolute;
+  top: 50px;
 }

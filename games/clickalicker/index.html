@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>[ Clickalicker II ]</title>
+  <title>Clickalicker II</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" >
   <link href="style.css" rel="stylesheet">
+  <link href="favicon.png" rel="icon">
 </head>
-<body onload="changeTopbarText()">
-  <div class="topbar">
+<body id="body">
+  <div id="topbar">
     <h1>Clickalicker II</h1>
     <p id="topText">updates coming soon... 😉</p>
   </div>
   <div class="game">
+    <h1 id="warning">This is a beta build of Clickalicker v1.1, so bugs may occur.</h1>
     <button id="mainBtn">Click me to start!</button>
     <div id="stats">
         <h1 id="statsTitle">STATS</h1>
         <hr>
-        <h1 id="perClick">Score per click: 1</h1>
-        <h1 id="perSecond">Score per second: 0</h1>
-        <h1 id="goal">Next goal: 1000</h1>
+        <h1 class="statstext statsleft">SCORE/CLICK</h1>
+        <h1 class="statstext statsright" id="perClick">1</h1>
+        <br>
+        <h1 class="statstext statsleft">SCORE/SECOND</h1>
+        <h1 class="statstext statsright" id="perSecond">0</h1>
+        <br>
+        <h1 class="statstext statsleft">GOAL</h1>
+        <h1 class="statstext statsright" id="goal">1000</h1>
+        <h1 class="hidden" id="devModeStat">- DEV MODE -</h1>
     </div>
     <div id="upgrades">
         <div id="manUpgrades">
@@ -38,6 +46,23 @@
                 <button class="purchase" id="purchase_DoubleClicker">Buy</button>
                 <button class="purchase" id="purchaseBulk_DoubleClicker">Buy 5</button>
             </div>
+            <div id="selfDrag" class="upgrade hidden">
+              <h3 class="name">Self Drag Click</h3>
+              <p class="description">-2 score/second, +10 score/click</p>
+              <p id="cost_selfDrag" class="cost">Cost: 10 score</p>
+              <p id="level_selfDrag" class="level">Level: 1</p>
+              <button class="purchase" id="purchase_selfDrag">Buy</button>
+              <button class="purchase" id="purchaseBulk_selfDrag">Buy 5</button>
+          </div>
+            <div id="chargedCursor" class="upgrade hidden">
+              <h3 class="name">Charged Cursor</h3>
+              <p class="description">+10 score/click</p>
+              <p id="cost_ChargedCursor" class="cost">Cost: 5 score</p>
+              <p id="level_ChargedCursor" class="level">Level: 1</p>
+              <button class="purchase" id="purchase_ChargedCursor">Buy</button>
+              <button class="purchase" id="purchaseBulk_ChargedCursor">Buy 5</button>
+          </div>
+          
         </div>
 
         <div id="autoUpgrades">
@@ -61,8 +86,12 @@
         </div>
         
     </div>
+    <h1 id="version"><a target="_blank" href="https://docs.google.com/document/d/1SoYKfFR6jLoRsEqtWXy_xSu2OsSgsgMAiTJWJODKDXM/edit?usp=sharing">
+      v1.1
+    </a></h1>
+    <a id="devMode">.</a>
 </div>
-  <script src="script.js"></script>
-  <script src="changeText.js"></script>
+<script src="script.js"></script>
+<script src="changeText.js"></script>
 </body>
 </html>
