@@ -49,7 +49,7 @@ body {
   border-radius: 20px;
   border: 3px solid black;
   transition: 0.5s;
-  flex-basis: 20%;
+  flex-basis: 25%;
 }
 
 #mainBtn:hover {
@@ -131,6 +131,7 @@ body {
     border-top: 5px solid black;
     border-right: 5px solid black;
     width: 250px;
+    max-height: 270px;
 }
 
 .statstext {
@@ -159,7 +160,7 @@ body {
 }
 
 #version:hover:before {
-  content: "Aug 26 2023 | Clickalicker II version 'Fixes' / ";
+  content: "Aug 28 2023 | Clickalicker II version 'BIGGER Part 1' / ";
 }
 
 #devMode {

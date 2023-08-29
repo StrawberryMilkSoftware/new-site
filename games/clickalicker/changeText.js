@@ -31,7 +31,17 @@ const texts = [
     "sorry for that",
     "still deleting score...",
     "this game is now ok i guess",
-    "why are you playing this game?" 
+    "why are you playing this game?",
+    "clickalicker > cookie clicker!",
+    "abcdefg",
+    "hijk",
+    "lmnop",
+    "qrs",
+    "tuv",
+    "wx",
+    "y and z",
+    "resetting save file...",
+    "destroying clickalicker II codebase..."
   ];
 
   const changingTextElement = document.getElementById("topText");

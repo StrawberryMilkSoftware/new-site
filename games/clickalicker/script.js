@@ -37,6 +37,17 @@ purchaseButton_ChargedCursor.addEventListener("click", upgradeChargedCursor);
 let purchaseBulkButton_ChargedCursor = document.getElementById("purchaseBulk_ChargedCursor");
 purchaseBulkButton_ChargedCursor.addEventListener("click", bulkUpgradeChargedCursor);
 
+// CURSED CURSOR
+const CursedCursor = document.getElementById("cursedCursor");
+let level_CursedCursor = 0;
+let cost_CursedCursor = 5;
+let costText_CursedCursor = document.getElementById("cost_CursedCursor");
+let levelText_CursedCursor = document.getElementById("level_CursedCursor");
+let purchaseButton_CursedCursor = document.getElementById("purchase_CursedCursor");
+purchaseButton_CursedCursor.addEventListener("click", upgradeCursedCursor);
+let purchaseBulkButton_CursedCursor = document.getElementById("purchaseBulk_CursedCursor");
+purchaseBulkButton_CursedCursor.addEventListener("click", bulkUpgradeCursedCursor);
+
 
 // DRAG CLICKER
 let level_DragClick = 0;
@@ -97,6 +108,18 @@ let purchaseBulkButton_Autoclicker = document.getElementById("purchaseBulk_Autoc
 purchaseBulkButton_Autoclicker.addEventListener("click", bulkUpgradeAutoclicker);
 let autoclickers = 0;
 
+// OVERCLOCKED AUTOCLICKER
+let OverAuto = document.getElementById("overAuto");
+let level_OverAuto = 0;
+let cost_OverAuto = 20;
+let costText_OverAuto = document.getElementById("cost_OverAuto");
+let levelText_OverAuto = document.getElementById("level_OverAuto");
+let purchaseButton_OverAuto = document.getElementById("purchase_OverAuto");
+purchaseButton_OverAuto.addEventListener("click", upgradeOverAuto);
+let purchaseBulkButton_OverAuto = document.getElementById("purchaseBulk_OverAuto");
+purchaseBulkButton_OverAuto.addEventListener("click", bulkUpgradeOverAuto);
+let overAutoclickers = 0;
+
 // DOUBLE CLICKER
 let DoubleClicker = document.getElementById("doubleClicker");
 let level_DoubleClicker = 0;
@@ -115,6 +138,7 @@ devModeButton.addEventListener("click", () => {
     SelfDrag.classList.remove("hidden");
     HiredGamer.classList.remove("hidden");
     Autoclicker.classList.remove("hidden");
+    CursedCursor.classList.remove("hidden");
     devModeStat.classList.remove("hidden");
     window.alert("Developer mode enabled!");
 });
@@ -167,6 +191,12 @@ function loadGoals() {
         window.alert("Goal reached! Unlocked: Autoclicker");
         Autoclicker.classList.remove("hidden");
 
+        goal = 50000
+    }
+    if (score >= 50000 && goal === 50000) {
+        window.alert("Goal reached! Unlocked: Cursed Cursor");
+        CursedCursor.classList.remove("hidden");
+
         // LAST GOAL
         goal = 0;
         goalText.innerHTML = "All goals reached!";
@@ -194,7 +224,7 @@ function upgradeExtraCursor() {
     if (score >= cost_ExtraCursor) {
         score -= cost_ExtraCursor;
         level_ExtraCursor++;
-        cost_ExtraCursor = Math.round(cost_ExtraCursor *= 2.5);
+        cost_ExtraCursor = Math.round(cost_ExtraCursor *= 1.25);
 
         // Upgrade action
         perclick++;
@@ -214,8 +244,8 @@ function upgradeExtraCursor() {
 function bulkUpgradeExtraCursor() {
     if (score >= (cost_ExtraCursor * 5)) {
         score -= (cost_ExtraCursor * 5);
-        level_ExtraCursor++;
-        cost_ExtraCursor = Math.round(cost_ExtraCursor *= 12.5);
+        level_ExtraCursor+=5;
+        cost_ExtraCursor = Math.round(cost_ExtraCursor *= 6.25);
 
         // Upgrade action
         perclick+=5;
@@ -239,8 +269,7 @@ function upgradeSelfDrag() {
         cost_SelfDrag = Math.round(cost_SelfDrag *= 1.5);
 
         // Upgrade action
-        perclick+=15;
-        persecond-=2;
+        perclick+=5;
 
         // Update text
         perClickText.innerHTML = `${perclick}`
@@ -258,12 +287,11 @@ function upgradeSelfDrag() {
 function bulkUpgradeSelfDrag() {
     if (score >= (cost_SelfDrag * 5) && persecond >= 10) {
         score -= (cost_SelfDrag * 5);
-        level_SelfDrag++;
+        level_SelfDrag+=5;
         cost_SelfDrag = Math.round(cost_SelfDrag *= 7.5);;
 
         // Upgrade action
-        perclick+=75;
-        persecond-=10;
+        perclick+=25;
 
         // Update text
         perClickText.innerHTML = `${perclick}`
@@ -302,7 +330,7 @@ function upgradeChargedCursor() {
 function bulkUpgradeChargedCursor() {
     if (score >= (cost_ChargedCursor * 5)) {
         score -= (cost_ChargedCursor * 5);
-        level_ChargedCursor++;
+        level_ChargedCursor+=5;
         cost_ChargedCursor *= 10;
 
         // Upgrade action
@@ -320,11 +348,53 @@ function bulkUpgradeChargedCursor() {
     }
 }
 
+function upgradeCursedCursor() {
+    if (score >= cost_CursedCursor) {
+        score -= cost_CursedCursor;
+        level_CursedCursor++;
+        cost_CursedCursor *= 2;
+
+        // Upgrade action
+        perclick+=25;
+
+        // Update text
+        perClickText.innerHTML = `${perclick}`
+        costText_CursedCursor.innerHTML = `Cost: ${cost_CursedCursor} score`;
+        levelText_CursedCursor.innerHTML = `Level: ${level_CursedCursor+1}`;
+        mainBtn.innerHTML = score;
+        savedYet = false;
+    }
+    else {
+        notEnoughScoreAlert();
+    }
+}
+
+function bulkUpgradeCursedCursor() {
+    if (score >= (cost_CursedCursor * 5)) {
+        score -= (cost_CursedCursor * 5);
+        level_CursedCursor+=5;
+        cost_CursedCursor *= 10;
+
+        // Upgrade action
+        perclick+=125;
+
+        // Update text
+        perClickText.innerHTML = `${perclick}`
+        costText_CursedCursor.innerHTML = `Cost: ${cost_CursedCursor} score`;
+        levelText_CursedCursor.innerHTML = `Level: ${level_CursedCursor+1}`;
+        mainBtn.innerHTML = score;
+        savedYet = false;
+    }
+    else {
+        notEnoughScoreAlert();
+    }
+}
+
 function upgradeDoubleClicker() {
     if (score >= cost_DoubleClicker) {
         score -= cost_DoubleClicker;
         level_DoubleClicker++;
-        cost_DoubleClicker = Math.round(cost_DoubleClicker *= 2.25);;
+        cost_DoubleClicker = Math.round(cost_DoubleClicker *= 2.5);
 
         // Upgrade action
         perclick*=2;
@@ -344,8 +414,8 @@ function upgradeDoubleClicker() {
 function bulkUpgradeDoubleClicker() {
     if (score >= cost_DoubleClicker*5) {
         score -= cost_DoubleClicker;
-        level_DoubleClicker++;
-        cost_DoubleClicker = Math.round(cost_DoubleClicker *= 11.25);;
+        level_DoubleClicker+=5;
+        cost_DoubleClicker = Math.round(cost_DoubleClicker *= 12.5);;
 
         // Upgrade action
         perclick*=10;
@@ -427,12 +497,12 @@ function upgradeAutoclicker() {
         score -= cost_Autoclicker;
         level_Autoclicker++;
         cost_Autoclicker *= 3;
-        persecond += 20;
+        persecond += 10;
         autoclickers++;
 
         // Upgrade action
         if (autoclickers === 1) {
-            setInterval(clickAuto, 50);
+            setInterval(clickAuto, 100);
         }
 
         // Update text
@@ -452,18 +522,73 @@ function bulkUpgradeAutoclicker() {
         score -= cost_Autoclicker;
         level_Autoclicker+=5;
         cost_Autoclicker *= 15;
-        persecond += 100;
+        persecond += 50;
         autoclickers += 5;
 
         // Upgrade action
         if (autoclickers === 1 || autoclickers === 5) {
-            setInterval(clickAuto, 50);
+            setInterval(clickAuto, 100);
         }
 
         // Update text
         perSecondText.innerHTML = `${persecond.toFixed(1)}`
         costText_Autoclicker.innerHTML = `Cost: ${cost_Autoclicker} score`;
         levelText_Autoclicker.innerHTML = `Level: ${level_Autoclicker+1}`;
+        mainBtn.innerHTML = score;
+        savedYet = false;
+    }
+    else {
+        notEnoughScoreAlert();
+    }
+}
+
+function clickOverAuto() {
+    score += (1 * overAutoclickers);
+    mainBtn.innerHTML = score;
+}
+
+function upgradeOverAuto() {
+    if (score >= cost_OverAuto) {
+        score -= cost_OverAuto;
+        level_OverAuto++;
+        cost_OverAuto *= 4;
+        persecond += 20;
+        overAutoclickers++;
+
+        // Upgrade action
+        if (overAutoclickers === 1) {
+            setInterval(clickOverAuto, 50);
+        }
+
+        // Update text
+        perSecondText.innerHTML = `${persecond.toFixed(1)}`
+        costText_OverAuto.innerHTML = `Cost: ${cost_OverAuto} score`;
+        levelText_OverAuto.innerHTML = `Level: ${level_OverAuto+1}`;
+        mainBtn.innerHTML = score;
+        savedYet = false;
+    }
+    else {
+        notEnoughScoreAlert();
+    }
+}
+
+function bulkUpgradeOverAuto() {
+    if (score >= cost_OverAuto) {
+        score -= cost_OverAuto;
+        level_OverAuto+=5;
+        cost_OverAuto *= 20;
+        persecond += 100;
+        overAutoclickers += 5;
+
+        // Upgrade action
+        if (overAutoclickers === 1 || overAutoclickers === 5) {
+            setInterval(clickAuto, 50);
+        }
+
+        // Update text
+        perSecondText.innerHTML = `${persecond.toFixed(1)}`
+        costText_OverAuto.innerHTML = `Cost: ${cost_OverAuto} score`;
+        levelText_OverAuto.innerHTML = `Level: ${level_OverAuto+1}`;
         mainBtn.innerHTML = score;
         savedYet = false;
     }
@@ -517,8 +642,8 @@ function bulkUpgradeHiredGamer() {
 
         // Update text
         perSecondText.innerHTML = `${persecond.toFixed(1)}`
-        costText_DragClick.innerHTML = `Cost: ${cost_DragClick} score`;
-        levelText_DragClick.innerHTML = `Level: ${level_DragClick+1}`;
+        costText_DragClick.innerHTML = `Cost: ${cost_HiredGamer} score`;
+        levelText_DragClick.innerHTML = `Level: ${level_HiredGamer+1}`;
         mainBtn.innerHTML = score;
         savedYet = false;
     }
@@ -622,6 +747,14 @@ saveButton.addEventListener('click', () => {
             "Autoclicker": {
                 "cost": cost_Autoclicker,
                 "level": level_Autoclicker
+            },
+            "CursedCursor": {
+                "cost": cost_CursedCursor,
+                "level": level_CursedCursor
+            },
+            "OverAuto": {
+                "cost": cost_OverAuto,
+                "level": level_OverAuto
             }
         }
     };
@@ -665,30 +798,53 @@ function loadData() {
     let loaded_ac_cost = parsedData.upgrades.Autoclicker.cost;
     let loaded_ac_level = parsedData.upgrades.Autoclicker.level;
 
+    let loaded_cursed_cost = parsedData.upgrades.CursedCursor.cost;
+    let loaded_cursed_level = parsedData.upgrades.CursedCursor.level;
+
+    let loaded_oa_cost = parsedData.upgrades.OverAuto.cost;
+    let loaded_oa_level = parsedData.upgrades.OverAuto.level;
+
+
     // Load upgrades into text
     costText_ExtraCursor.innerHTML = `Cost: ${loaded_ec_cost} score`;
     levelText_ExtraCursor.innerHTML = `Level: ${loaded_ec_level+1}`;
+    cost_ExtraCursor = loaded_ec_cost;
 
     costText_DoubleClicker.innerHTML = `Cost: ${loaded_dc_cost} score`;
     levelText_DoubleClicker.innerHTML = `Level: ${loaded_dc_level+1}`;
+    cost_DoubleClicker = loaded_dc_cost;
 
     costText_ChargedCursor.innerHTML = `Cost: ${loaded_cc_cost} score`;
     levelText_ChargedCursor.innerHTML = `Level: ${loaded_cc_level+1}`;
+    cost_ChargedCursor = loaded_cc_cost;
 
     costText_SelfDrag.innerHTML = `Cost: ${loaded_sd_cost} score`;
     levelText_SelfDrag.innerHTML = `Level: ${loaded_sd_level+1}`;
+    cost_SelfDrag = loaded_sd_cost;
 
     costText_DragClick.innerHTML = `Cost: ${loaded_drag_cost} score`;
     levelText_DragClick.innerHTML = `Level: ${loaded_drag_level+1}`;
+    cost_DragClick = loaded_drag_cost;
 
     costText_ExpDrag.innerHTML = `Cost: ${loaded_ed_cost} score`;
     levelText_ExpDrag.innerHTML = `Level: ${loaded_ed_level+1}`;
+    cost_ExpDrag = loaded_ed_cost;
 
     costText_HiredGamer.innerHTML = `Cost: ${loaded_hg_cost} score`;
     levelText_HiredGamer.innerHTML = `Level: ${loaded_hg_level+1}`;
+    cost_HiredGamer = loaded_hg_cost;
 
     costText_Autoclicker.innerHTML = `Cost: ${loaded_ac_cost} score`;
     levelText_Autoclicker.innerHTML = `Level: ${loaded_ac_level+1}`;
+    cost_Autoclicker = loaded_ac_cost;
+
+    costText_CursedCursor.innerHTML = `Cost: ${loaded_cursed_cost} score`;
+    levelText_CursedCursor.innerHTML = `Level: ${loaded_cursed_level+1}`;
+    cost_CursedCursor = loaded_cursed_cost;
+
+    costText_OverAuto.innerHTML = `Cost: ${loaded_oa_cost} score`;
+    levelText_OverAuto.innerHTML = `Level: ${loaded_oa_level+1}`;
+    cost_OverAuto = loaded_oa_cost;
 }
 
 resetButton.addEventListener("click", () => {
@@ -720,21 +876,25 @@ postLoadTextUpdate();
 
 if (goal === 2500) {
     DoubleClicker.classList.remove('hidden');
+    goalText.innerHTML = '2500';
 }
 if (goal === 5000) {
     DoubleClicker.classList.remove('hidden');
     ExpDrag.classList.remove('hidden');
+    goalText.innerHTML = '5000';
 }
 if (goal === 7500) {
     DoubleClicker.classList.remove('hidden');
     ExpDrag.classList.remove('hidden');
     SelfDrag.classList.remove('hidden');
+    goalText.innerHTML = '7500';
 }
 if (goal === 10000) {
     DoubleClicker.classList.remove('hidden');
     ExpDrag.classList.remove('hidden');
     SelfDrag.classList.remove('hidden');
     HiredGamer.classList.remove('hidden');
+    goalText.innerHTML = '10000';
 }
 if (goal === 20000) {
     DoubleClicker.classList.remove('hidden');
@@ -742,6 +902,7 @@ if (goal === 20000) {
     SelfDrag.classList.remove('hidden');
     HiredGamer.classList.remove('hidden');
     ChargedCursor.classList.remove('hidden');
+    goalText.innerHTML = '20000';
 }
 if (goal === 0) {
     DoubleClicker.classList.remove('hidden');
@@ -750,6 +911,11 @@ if (goal === 0) {
     HiredGamer.classList.remove('hidden');
     ChargedCursor.classList.remove('hidden');
     Autoclicker.classList.remove('hidden');
+    goalText.innerHTML = "All goals reached!";
+    body.style.backgroundColor = "#FFED8A";
+    mainBtn.style.backgroundColor = "#FFDE2E";
+    topBar.style.backgroundColor = "#FFD700";
+    statsBox.style.backgroundColor = "#FFD700";
 }
 
 dragClickers = parsedData.upgrades.DragClick.level;
@@ -767,5 +933,5 @@ if (gamers > 0) {
     setInterval(clickGamer, 1000);
 }
 if (autoclickers > 0) {
-    setInterval(clickAuto, 50);
+    setInterval(clickAuto, 100);
 }
