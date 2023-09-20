@@ -43,20 +43,11 @@ body {
 .topnav {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 75px;
     width: 100vw;
     transition: 0.5;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.879), rgba(0,0,0,0))
-}
-
-#userinfo {
-    float: right;
-}
-
-#userinfo i {
-    color: white;
-    font-size: 25px;
-    margin: 15px;
+    background-color:rgb(24, 24, 24);
 }
 
 #navlogo {
@@ -137,4 +128,90 @@ button:hover {
 .socials {
     margin-top: 50px;
     text-align: center;
+}
+
+/* Store */
+
+.storetitle {
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+
+.product {
+    border: 5px solid black;
+    height: 300px;
+    width: 200px;
+    border-radius: 30px;
+    background-color: rgb(167, 167, 167);
+    transition: .2s;
+    margin: 10px;
+    float: left;
+}
+
+.product:hover {
+    border: 5px solid rgb(236, 236, 236)
+}
+
+.product img {
+    height: 300px;
+    width: 200px;
+    border-radius: 25px;
+}
+
+.product p {
+    font-size: 25px;
+    color: white;
+    position: relative;
+    left: 10px;
+    bottom: 75px;
+}
+
+.price {
+    font-size: 15px !important;
+    opacity: 0.5;
+}
+
+
+.row {
+    height: 300px;
+    width: 1150px;
+    margin: auto;
+}
+
+/* product pages */
+
+.productName {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    margin: 0;
+}
+
+.productSlogan {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 22.5px;
+}
+
+.productLogo {
+    height: 300px;
+    width: 300px;
+}
+
+.productDesc {
+    text-align: center;
+    color: white;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.productBtn {
+    margin-top: 20px;
 }

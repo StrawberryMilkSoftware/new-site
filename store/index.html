@@ -7,9 +7,11 @@
     <title>store | strawberry milk software</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body>
-    <div class="topnav" data-aos="fade-down">
+<body onload="AOS.init()">
+    <div class="topnav">
         <a href="/">
         <div id="navlogo">
             <img src="/images/logo.png" alt="logo" width="125" height="125">
@@ -26,18 +28,51 @@
                 <button>GitHub</button>
             </a>
         </div>
-        <div id="userinfo">
-            <i class="fa fa-user"></i>
-            <i class="fa fa-cart-shopping"></i>
-        </div>
     </div>
 
     <!--------------------------------------->
 
-    <div class="unleash">
-        <h1>Store not yet available.</h1>
-        <p>Come back soon!</p>
+    <div class="storetitle" data-aos="zoom-in">
+        <h1>Store</h1>
     </div>
+    <div data-aos="fade-up" class="row">
+        <a href="/store/compix">
+            <div class="product">
+                <img src="/images/compix-product.png" alt="ZTerminal">
+                <p>COMPIX</p>
+                <p class="price">FREE + OPEN SOURCE</p>
+            </div>    
+        </a>
+        <a href="/bookmark">
+            <div class="product">
+                <img src="/images/jbg-product.png" alt="TD IDK WHAT TO CALL IT">
+                <p>JS Bookmarklet</p>
+                <p class="price">WEB</p>
+            </div>    
+        </a>
+        <a href="/games/clickalicker">
+            <div class="product">
+                <img src="/images/clickalicker-product.png" alt="TD IDK WHAT TO CALL IT">
+                <p>Clickalicker II</p>
+                <p class="price">WEB</p>
+            </div>    
+        </a>
+        <a href="/store/">
+            <div class="product">
+                <img src="/images/logo-product.png" alt="TD IDK WHAT TO CALL IT">
+                <p>coming soon...</p>
+                <p class="price">nothing yet...</p>
+            </div>    
+        </a>
+        <a href="/store/">
+            <div class="product">
+                <img src="/images/logo-product.png" alt="TD IDK WHAT TO CALL IT">
+                <p>coming soon...</p>
+                <p class="price">nothing yet...</p>
+            </div>    
+        </a>
+    </div>
+    
 
     <!--------------------------------------->
     <div class="footer">
